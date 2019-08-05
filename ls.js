@@ -5,12 +5,15 @@ const ls = cmd => {
     if (err) {
       throw err;
     } else {
-      process.stdout.write(files.join("\n"));
+      files.forEach((el, idx) => {
+        let string = el + "\n";
+        process.stdout.write(string);
+        if (idx === files.length - 1) {
+          process.stdout.write("prompt > ");
+        }
+      });
     }
   });
-  setTimeout(function() {
-    process.stdout.write("\nprompt > ");
-  }, 0);
 };
 
 module.exports.ls = ls;

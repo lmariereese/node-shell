@@ -10,11 +10,15 @@ process.stdin.on("data", data => {
   const cmd = data.toString().trim(); //remote the newline
 
   process.stdout.write("You typed: " + cmd);
+
   if (cmd === "pwd") {
     pwd(cmd);
   }
   if (cmd === "ls") {
+    process.stdout.write("\n");
     ls(cmd);
   }
-  process.stdout.write("\nprompt > ");
 });
+
+
+
